@@ -22,8 +22,8 @@ function agregarEnLista(elementoEnArray, lista) {
 }
 
 function sortearAmigo() {
-
     tamañoArray = amigos.length;
+    
     if(tamañoArray == 0) {
         alert("La lista de amigos  está vacía.")
         return;
@@ -46,5 +46,5 @@ function validarEntrada(dato, tipoDato) {
 }
 
 function limpiarCampo(IdCampo){
-    document.getElementById(IdCampo).value = "" 
+    document.getElementById(IdCampo).value = "";
 }
