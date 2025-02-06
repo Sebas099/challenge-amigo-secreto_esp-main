@@ -1,14 +1,16 @@
 let amigos = [];
 
 function agregarAmigo() {
+    
     let nombreAgregado = document.getElementById("amigo").value;
 
     if (!validarEntrada(nombreAgregado, "nombre")) {
         return;
     }
-    
+
     amigos.push(nombreAgregado);
-    document.getElementById("amigo").value = "";
+    limpiarCajaPorId("amigo");
+    agregarEnLista2(amigos[amigos.length - 1]);
 }
 
 function validarEntrada(dato, tipoDato) {
@@ -18,6 +20,21 @@ function validarEntrada(dato, tipoDato) {
     }
     return true;
 }
+
+function limpiarCajaPorId(Id) {
+    document.getElementById(Id).value = "";
+}
+
+
+function agregarEnLista(elementoEnArray) {
+    let lista = document.getElementById("listaAmigos");
+    let elemento = document.createElement("li");
+    
+    elemento.textContent = elementoEnArray;
+    lista.appendChild(elemento);
+}
+
+
 //TODO Functions:
 // Add names: Type a friend's name in the text field and click "Add" to add it to the visible list and validate the input;
 //If the text field is empty, an alert will appear asking for a valid name. The entered names will appear in a list below 
