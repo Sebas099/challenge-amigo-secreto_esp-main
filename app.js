@@ -1,4 +1,5 @@
 let amigos = [];
+limpiarCampo("amigo");
 
 function agregarAmigo() {
     
@@ -9,8 +10,31 @@ function agregarAmigo() {
     }
 
     amigos.push(nombreAgregado);
-    limpiarCajaPorId("amigo");
-    agregarEnLista(amigos[amigos.length - 1]);
+    limpiarCampo("amigo");
+    agregarEnLista(amigos[amigos.length - 1], "listaAmigos");
+}
+
+function agregarEnLista(elementoEnArray, lista) {
+    let elemento = document.createElement("li");
+    
+    elemento.textContent = elementoEnArray;
+    document.getElementById(lista).appendChild(elemento);
+}
+
+function sortearAmigo() {
+
+    tamañoArray = amigos.length;
+    if(tamañoArray == 0) {
+        alert("La lista de amigos  está vacía.")
+        return;
+    }
+
+    let indiceAleatorio = Math.floor(Math.random() * tamañoArray);
+    let listaGanadores = document.getElementById("resultado");
+    let ganador = document.createElement("li");
+    
+    ganador.textContent = amigos[indiceAleatorio];
+    listaGanadores.appendChild(ganador);
 }
 
 function validarEntrada(dato, tipoDato) {
@@ -21,23 +45,6 @@ function validarEntrada(dato, tipoDato) {
     return true;
 }
 
-function limpiarCajaPorId(Id) {
-    document.getElementById(Id).value = "";
+function limpiarCampo(IdCampo){
+    document.getElementById(IdCampo).value = "" 
 }
-
-
-function agregarEnLista(elementoEnArray) {
-    let lista = document.getElementById("listaAmigos");
-    let elemento = document.createElement("li");
-    
-    elemento.textContent = elementoEnArray;
-    lista.appendChild(elemento);
-}
-
-
-//TODO Functions:
-// Add names: Type a friend's name in the text field and click "Add" to add it to the visible list and validate the input;
-//If the text field is empty, an alert will appear asking for a valid name. The entered names will appear in a list below 
-//the input field.
-
-// Random draw: Click the "Draw a Friend" button to randomly select a name from the list and display it on the page. 
