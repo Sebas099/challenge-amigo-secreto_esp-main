@@ -10,7 +10,7 @@ function agregarAmigo() {
 
     amigos.push(nombreAgregado);
     limpiarCajaPorId("amigo");
-    agregarEnLista2(amigos[amigos.length - 1]);
+    agregarEnLista(amigos[amigos.length - 1]);
 }
 
 function validarEntrada(dato, tipoDato) {
