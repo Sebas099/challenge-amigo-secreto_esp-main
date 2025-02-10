@@ -28,7 +28,7 @@ function sortearAmigo() {
         alert("La lista de amigos  está vacía.")
         return;
     }
-
+    limpiarCampo(listaGanadores);
     let indiceAleatorio = Math.floor(Math.random() * tamañoArray);
     let listaGanadores = document.getElementById("resultado");
     let ganador = document.createElement("li");
